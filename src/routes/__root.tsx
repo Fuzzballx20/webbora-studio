@@ -74,14 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Webbora" },
+      { name: "description", content: "Webbora's Cozy Corner is a website showcasing handmade clothing with a personal, artistic aesthetic." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Webbora" },
+      { property: "og:description", content: "Webbora's Cozy Corner is a website showcasing handmade clothing with a personal, artistic aesthetic." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Webbora" },
+      { name: "twitter:description", content: "Webbora's Cozy Corner is a website showcasing handmade clothing with a personal, artistic aesthetic." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/47c25b91-37fa-46e2-9207-ceab830258ca/id-preview-25b5b363--692bda58-0f32-46cd-9abd-c4aa7ac43728.lovable.app-1778602878866.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/47c25b91-37fa-46e2-9207-ceab830258ca/id-preview-25b5b363--692bda58-0f32-46cd-9abd-c4aa7ac43728.lovable.app-1778602878866.png" },
     ],
     links: [
       {
