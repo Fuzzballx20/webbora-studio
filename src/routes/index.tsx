@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Instagram, Mail, MessageCircle, Scissors, Shirt, Sparkles, Crown, Gem, Menu, X } from "lucide-react";
 import heroStudio from "@/assets/hero-studio.jpg";
-import piece1 from "@/assets/piece-1.jpg";
-import piece2 from "@/assets/piece-2.jpg";
-import piece3 from "@/assets/piece-3.jpg";
-import processHands from "@/assets/process-hands.jpg";
-import designer from "@/assets/designer.jpg";
+import piece1 from "@/assets/piece-1.png";
+import piece2 from "@/assets/piece-2.png";
+import piece3 from "@/assets/piece-3.png";
+import processHands from "@/assets/process-hands.png";
+import designer from "@/assets/designer.png";
 import { Polaroid } from "@/components/site/Polaroid";
 
 export const Route = createFileRoute("/")({
@@ -225,27 +225,27 @@ function Hero() {
 const pieces = [
   {
     src: piece1,
-    alt: "Cream linen smock dress",
-    title: "The Sunday Smock",
-    note: "soft cream linen, wide sleeves, made to be lived in",
+    alt: "A Winter Range Piece",
+    title: "A Winter Range Piece",
+    note: "soft cream colour, made to be lived in",
     rotate: -3,
     span: "md:col-span-5 md:row-span-2",
     aspect: "aspect-[4/5]",
   },
   {
     src: piece2,
-    alt: "Hand-stitched clay wool jacket",
-    title: "Clay Field Jacket",
-    note: "hand-stitched wool, the colour of warm earth",
+    alt: "An Autumn Outfit Piece",
+    title: "An Autumn Outfit Piece",
+    note: "hand-stitched, the colour of warm earth",
     rotate: 2,
     span: "md:col-span-4 md:mt-16",
     aspect: "aspect-[4/5]",
   },
   {
     src: piece3,
-    alt: "Olive linen blouse",
-    title: "Olive Garden Blouse",
-    note: "for slow mornings & herb-picking afternoons",
+    alt: "Emerald Eclipse Gown",
+    title: "Emerald Eclipse Gown",
+    note: "Grace in every shimmer, confidence in every step.",
     rotate: -1,
     span: "md:col-span-3 md:mt-4",
     aspect: "aspect-[4/5]",
@@ -377,10 +377,10 @@ function About() {
         <div className="space-y-6">
           <p className="handwritten text-2xl text-clay">— a little about me —</p>
           <h2 className="font-serif text-4xl text-cocoa md:text-5xl">
-            I make clothes the way my grandmother taught me — slowly, and with love.
+            I make clothes the only way I know how — slowly, and with love.
           </h2>
           <p className="leading-relaxed text-cocoa/75">
-            My studio is a sunny room at the back of my house. There are dried flowers
+            My studio is a sunny room in my house. There are dried flowers
             on the windowsill, a kettle that's always on, and stacks of fabric I've
             been collecting for years. I sketch on scraps of paper, choose linens by
             how they feel in my hands, and finish every hem in front of the radio.
@@ -408,7 +408,7 @@ const contacts = [
     icon: Instagram,
     label: "Instagram",
     handle: "@designsbywebbora",
-    href: "https://instagram.com/designsbywebbora",
+    href: "https://www.instagram.com/designsbywebbora",
     note: "peek into the studio",
   },
   {
