@@ -12,6 +12,11 @@ export default defineConfig({
   tanstackStart: {
     server: {
       entry: "server",
+    },
+  },
+
+  vite: {
+    server: {
       allowedHosts: ["webbora-studio.onrender.com"],
     },
   },
