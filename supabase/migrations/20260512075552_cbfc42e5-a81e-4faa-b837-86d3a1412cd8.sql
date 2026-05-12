@@ -1,0 +1,1 @@
+drop policy if exists "Public read access to product images" on storage.objects;
