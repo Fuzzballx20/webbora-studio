@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Mail, MessageCircle, Scissors, Shirt, Sparkles, Crown, Gem } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Instagram, Mail, MessageCircle, Scissors, Shirt, Sparkles, Crown, Gem, Menu, X } from "lucide-react";
 import heroStudio from "@/assets/hero-studio.jpg";
 import piece1 from "@/assets/piece-1.jpg";
 import piece2 from "@/assets/piece-2.jpg";
@@ -33,13 +34,30 @@ export const Route = createFileRoute("/")({
   }),
 });
 
+const navLinks = [
+  { href: "#pieces", label: "Pieces", note: "from the rack" },
+  { href: "#services", label: "Services", note: "made for you" },
+  { href: "#about", label: "About", note: "hello, i'm Webbora" },
+  { href: "#contact", label: "Contact", note: "say hello ✿" },
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
-    <header className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:py-8">
+    <header className="relative z-30 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:py-8">
       <a href="#top" className="flex items-baseline gap-2">
         <span className="font-serif text-2xl tracking-tight text-cocoa">Webbora</span>
         <span className="handwritten text-lg text-clay">— designs by</span>
       </a>
+
       <nav className="hidden items-center gap-8 text-sm text-cocoa/80 md:flex">
         <a href="#pieces" className="hover:text-clay transition-colors">Pieces</a>
         <a href="#services" className="hover:text-clay transition-colors">Services</a>
@@ -51,6 +69,78 @@ function Nav() {
           Say hello
         </a>
       </nav>
+
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label="Open menu"
+        aria-expanded={open}
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cocoa/30 bg-cream/70 text-cocoa shadow-[var(--shadow-soft)] backdrop-blur transition hover:border-clay hover:text-clay md:hidden"
+      >
+        <Menu className="h-5 w-5" strokeWidth={1.5} />
+      </button>
+
+      {/* Mobile menu overlay */}
+      <div
+        className={`fixed inset-0 z-40 transition-opacity duration-300 md:hidden ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!open}
+      >
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+          className="absolute inset-0 bg-cocoa/40 backdrop-blur-sm"
+        />
+        <div
+          className={`paper-texture absolute right-3 top-3 w-[min(22rem,calc(100vw-1.5rem))] rounded-3xl border border-border/70 p-6 shadow-[var(--shadow-card)] transition-all duration-300 ${
+            open ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+          }`}
+          style={{ transform: open ? "rotate(-1deg)" : undefined }}
+        >
+          <span
+            className="tape rounded-sm"
+            style={{ top: -10, left: "calc(50% - 45px)", transform: "rotate(-3deg)" }}
+            aria-hidden="true"
+          />
+          <div className="flex items-center justify-between">
+            <p className="handwritten text-2xl text-clay">— wander in —</p>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cocoa/20 text-cocoa hover:border-clay hover:text-clay"
+            >
+              <X className="h-4 w-4" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <ul className="mt-6 space-y-1">
+            {navLinks.map((l, i) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="group flex items-baseline justify-between rounded-2xl px-3 py-3 transition hover:bg-secondary/70"
+                  style={{ transform: `rotate(${i % 2 === 0 ? -0.4 : 0.4}deg)` }}
+                >
+                  <span className="font-serif text-2xl text-cocoa group-hover:text-clay">
+                    {l.label}
+                  </span>
+                  <span className="handwritten text-base text-cocoa/55 group-hover:text-clay">
+                    {l.note}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p className="handwritten mt-6 border-t border-border/60 pt-4 text-center text-lg text-cocoa/55">
+            with love, from the studio ✿
+          </p>
+        </div>
+      </div>
     </header>
   );
 }
